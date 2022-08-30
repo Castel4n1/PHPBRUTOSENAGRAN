@@ -11,7 +11,7 @@
     <?php include('inc/css.php');
     ?>
     <!-- JS -->
-    <?php include_once('inc/js.php');
+    <?php require_once('inc/js.php'); //-----Utilizar quando o elemento É obrigatório
     ?>
 
 
@@ -21,20 +21,20 @@
     <div class="container">
         <!-- MENU -->
         <?php 
-            include('inc/menu.php');
-            include('inc/menu.php');
-            include('inc/menu.php');
+            require_once('inc/menu.php'); 
         ?>
         <!-- /MENU -->
 
         <!-- CONTEUDO -->
         <div>
-
+            <h1>BASE</h1>
         </div>
         <!-- /CONTEUDO -->
 
         <!-- RODAPE -->
-
+        <?php  
+            include_once('inc/rodape.php'); //----------- Include_once quando quer mostrar apenas uma vez a informação
+        ?>
         <!-- /RODAPE -->
 
     </div>

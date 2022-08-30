@@ -7,10 +7,20 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="home.php">Home</a>
-                    <a class="nav-link" href="postagem.php">Postagens</a>
-                    <a class="nav-link" href="usuarios.php">Usuarios</a>
-                    <a class="nav-link" href="sair.php">Sair</a>
+                    <a class="nav-link" href="home.php">
+                    <i class="bi bi-house-heart"></i>
+                        Home                        
+                    </a>
+                    <a class="nav-link" href="postagem.php">
+                    <i class="bi bi-chat-heart"></i>
+                        Postagens
+                    </a>
+                    <a class="nav-link" href="usuarios.php"><i class="bi bi-people"></i>
+                        Usuarios
+                    </a>
+                    <a class="nav-link" href="sair.php"><i class="bi bi-door-open"></i>
+                        Sair
+                    </a>
                 </div>
             </div>
         </div>
