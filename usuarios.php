@@ -1,3 +1,22 @@
+<?php
+    require_once('inc/classes.php');
+
+    $Usuario = new Usuario();
+    /*
+    echo '<pre>';
+    print_r($Usuario->listar());
+    echo '</pre>';
+    */
+
+    #CADASTRAR USUARIO
+    $dados = [
+        'nome' => 'JOSE DA ALVES',
+        'email' => 'jose1@teste.teste',
+        'senha' => '1234'
+        ];
+    echo $Usuario->cadastrar($dados);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -28,6 +47,41 @@
         <!-- CONTEUDO -->
         <div>
             <h1>usuarios</h1>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Ações</th>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>EMAIL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                        $usuarios = $Usuario->listar();
+                        foreach ($usuarios as $usuario) 
+                            {
+                            # code...
+                        
+                    ?>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <?php echo $usuario ->id_usuario; ?>
+                        </td>
+                        <td>
+                            <?php echo $usuario ->nome; ?>
+                        </td>
+                        <td>
+                            <?php echo $usuario ->email; ?>
+                        </td>
+                    </tr>
+                    <?php
+                            }#FECHA FOREACH
+                    ?>
+                </tbody>
+            </table>
         </div>
         <!-- /CONTEUDO -->
 
