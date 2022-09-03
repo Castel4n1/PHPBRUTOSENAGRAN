@@ -11,10 +11,10 @@
     #CADASTRAR USUARIO
     $dados = [
         'nome' => 'JOSE DA ALVES',
-        'email' => 'jose1@teste.teste',
+        'email' => 'jos1e1@teste.teste',
         'senha' => '1234'
         ];
-    echo $Usuario->cadastrar($dados);
+    //echo $Usuario->cadastrar($dados);
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +46,13 @@
 
         <!-- CONTEUDO -->
         <div>
-            <h1>usuarios</h1>
+            <h1>USUARIOS
+                -
+                <a class="btn btn-dark" href="<?php echo URL;?>/usuario-cadastrar.php">
+
+                    Novo
+                </a>
+            </h1>
 
             <table class="table table-striped">
                 <thead>

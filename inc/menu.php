@@ -21,6 +21,9 @@
                     <a class="nav-link" href="sair.php"><i class="bi bi-door-open"></i>
                         Sair
                     </a>
+                    <a class="nav-link" href="usuario-cadastrar.php"><i class="bi bi-door-open"></i>
+                        PAGINA EM MOVIMENTO
+                    </a>
                 </div>
             </div>
         </div>

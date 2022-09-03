@@ -22,28 +22,66 @@ class Usuario extends Conexao
         #Retornar os dados
         return $sql->fetchAll(PDO::FETCH_OBJ);
     }
-    public function Cadastrar(Array $dados = null)
+    public function cadastrar(Array $dados = null)
     {
         $sql = $this->pdo->prepare(
-            "INSERT INTO usuarios 
-            (nome, email, senha)
-            VALUES
-            (:nome, :email, :senha)
-            "
+            "INSERT INTO usuarios (nome, email, senha)  VALUES (:nome, :email, :senha)"
             );
-    #MESCLAR OS DADOS
     #OU TRATAR OS DADOS
-
-    $sql->bindParam(':nome',$dados['nome']);
-    $sql->bindParam(':email',$dados['email']);
-    $sql->bindParam(':senha',$dados['senha']);
+    $nome = trim(strtoupper($dados['nome']));
+    $email = trim(strtolower($dados['email']));
+    $senha = md5($dados['senha']);
+    #MESCLAR OS DADOS
+    $sql->bindParam(':nome',$nome['nome']);
+    $sql->bindParam(':email',$email['email']);
+    $sql->bindParam(':senha',$senha['senha']);
         
     #EXECUTAR
     $sql->execute();
 
     return $this->pdo->lastInsertId();
-
     }
+
+    public function atualizar(array $dados)
+    {
+        $sql = $this->pdo->prepare(
+        "UPDATE usuarios SET (nome = :nome, email = :email, senha = :senha) 
+         WHERE id_usuario = :id_usuario LIMIT 1"
+                
+        );
+
+
+        #OU TRATAR OS DADOS
+        $nome = trim(strtoupper($dados['nome']));
+        $email = trim(strtolower($dados['email']));
+        $senha = md5($dados['senha']);
+        #MESCLAR OS DADOS
+        $sql->bindParam(':nome',$nome['nome']);
+        $sql->bindParam(':email',$email['email']);
+        $sql->bindParam(':senha',$senha['senha']);
+        $sql->bindParam(':id_usuario', $dados['id_usuario']);
+                
+        #EXECUTAR
+        $sql->execute();
+    }
+    public function apagar(int $id_usuario)
+    {
+        $sql = $this->pdo->prepare("DELETE FROM usuarios
+        WHERE id_usuario = :id_usuario");
+
+        $sql->bindParam(':id_usuario',$id_usuario);
+        $sql->execute();
+    }
+
+    public function mostrar(int $id_usuario)
+    {
+        $sql = $this->pdo->prepare("SELECT FROM usuarios
+            WHERE id_usuario = :id_usuario");
+
+        $sql->bindParam(':id_usuario',$id_usuario);
+        $sql->execute();
+    }
+
 }
 
 
