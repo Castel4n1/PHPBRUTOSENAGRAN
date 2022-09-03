@@ -45,7 +45,7 @@ class Usuario extends Conexao
     public function atualizar(array $dados)
     {
         $sql = $this->pdo->prepare(
-        "UPDATE usuarios SET (nome = :nome, email = :email, senha = :senha) 
+        "UPDATE usuarios SET nome = :nome, email = :email, senha = :senha
          WHERE id_usuario = :id_usuario LIMIT 1"
                 
         );
@@ -75,11 +75,12 @@ class Usuario extends Conexao
 
     public function mostrar(int $id_usuario)
     {
-        $sql = $this->pdo->prepare("SELECT FROM usuarios
+        $sql = $this->pdo->prepare("SELECT * FROM usuarios
             WHERE id_usuario = :id_usuario");
 
         $sql->bindParam(':id_usuario',$id_usuario);
         $sql->execute();
+        return $sql->fetch(PDO::FETCH_OBJ);
     }
 
 }

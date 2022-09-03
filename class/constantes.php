@@ -1,6 +1,6 @@
 <?php 
 #CONSTANTES
-const URL= 'http://localhost/PHPBRUTOSENAGRAN/';
+const URL= 'http://localhost/PHPBRUTOSENAGRAN';
 
 
 

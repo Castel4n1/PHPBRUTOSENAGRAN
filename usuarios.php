@@ -72,15 +72,22 @@
                         
                     ?>
                     <tr>
-                        <td></td>
                         <td>
-                            <?php echo $usuario ->id_usuario; ?>
+                            <a href="<?php echo URL?>/usuario_atualizar.php?id=<?php echo $usuario->id_usuario?>"
+                            class="btn btn-success">
+                            Editar
+                            
+                            
+                        </a>
                         </td>
                         <td>
-                            <?php echo $usuario ->nome; ?>
+                            <?php echo $usuario->id_usuario; ?>
                         </td>
                         <td>
-                            <?php echo $usuario ->email; ?>
+                            <?php echo $usuario->nome; ?>
+                        </td>
+                        <td>
+                            <?php echo $usuario->email; ?>
                         </td>
                     </tr>
                     <?php
