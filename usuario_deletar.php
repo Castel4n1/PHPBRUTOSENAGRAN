@@ -4,7 +4,7 @@ $Usuario = new Usuario();
 
     if (isset($_POST['btnApagar'])) 
     {
-        $Usuario->apagar($_POST);
+        $Usuario->apagar($_POST['id_usuario']);
         header('location:'.URL.'usuarios.php');
     }
 #PEGAR OS DADOS DO USUARIO, QUE O 'ID' FOI INFORMADO
@@ -57,7 +57,8 @@ $usuario = $Usuario->mostrar($_GET['id']);
                         </div>
 
                         <div class="offset-11 col-md-1 mt-1">
-                            <input class="btn btn-primary" type="submit" name="btnDeletar" value="Deletar" required>
+                            <input class="btn btn-danger" type="submit" name="btnApagar" value="Deletar" required>
+                            
                         </div>
                     </div>
                 </div>

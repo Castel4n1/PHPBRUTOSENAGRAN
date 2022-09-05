@@ -49,6 +49,7 @@
             <h1>USUARIOS
                 -
                 <a class="btn btn-dark" href="<?php echo URL;?>/usuario-cadastrar.php">
+                <i class="bi bi-person-plus"></i>
 
                     Novo
                 </a>
@@ -74,10 +75,13 @@
                     <tr>
                         <td>
                             <a href="<?php echo URL?>/usuario_atualizar.php?id=<?php echo $usuario->id_usuario?>"
-                            class="btn btn-success">
+                            class="btn btn-dark"
+                            ><i class="bi bi-pencil-square"></i>
                             Editar
+                            
                             <a href="<?php echo URL?>/usuario_deletar.php?id=<?php echo $usuario->id_usuario?>"
-                            class="btn btn-danger">
+                            class="btn btn-dark">
+                            <i class="bi bi-trash3"></i>
                             Apagar
                             
                             
