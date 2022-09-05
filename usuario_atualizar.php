@@ -67,7 +67,7 @@ $usuario = $Usuario->mostrar($_GET['id']);
                         </div>
                         
                         <div class="offset-11 col-md-1 mt-1">
-                            <input class="btn btn-danger" type="submit" name="btnApagar" value="Apagar" required>
+                            <input class="btn btn-danger" type="submit" name="btnEditar" value="Atualizar" required>
                         </div>
                     </div>
                 </div>

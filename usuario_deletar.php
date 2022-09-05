@@ -41,7 +41,7 @@ $usuario = $Usuario->mostrar($_GET['id']);
 
         <!-- CONTEUDO -->
         <div>
-            <h1> Editar USUARIO: <?php echo $usuario->nome; ?></h1>
+            <h1> Apagar USUARIO: <?php echo $usuario->nome; ?></h1>
             <form action="?" method="post">
                 <!-- CAMPO OCULTO -->
                 <input type="hidden" name="id_usuario" value="<?php echo $usuario->id_usuario?>">
@@ -56,18 +56,8 @@ $usuario = $Usuario->mostrar($_GET['id']);
                             <input type="email" name="email" id="email" class="form-control" value="<?php echo $usuario->email; ?>" required>
                         </div>
 
-                        <div class="form-group col-md-6">
-                            <label for="senha" class="form-label">Senha*</label>
-                            <input type="password" name="senha" id="senha" class="form-control" required autocomplete="off">
-                        </div>
-
-                        <div class="form-group col-md-6">
-                            <label for="confirma_senha" class="form-label">ConfirmaSenha*</label>
-                            <input type="password" name="confirma_senha" id="confirma_senha" class="form-control" required autocomplete="off">
-                        </div>
-                        
                         <div class="offset-11 col-md-1 mt-1">
-                            <input class="btn btn-primary" type="submit" name="btnEditar" value="Atualizar" required>
+                            <input class="btn btn-primary" type="submit" name="btnDeletar" value="Deletar" required>
                         </div>
                     </div>
                 </div>
