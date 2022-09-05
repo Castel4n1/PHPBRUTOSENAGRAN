@@ -44,7 +44,7 @@ $usuario = $Usuario->mostrar($_GET['id']);
             <h1> Editar USUARIO: <?php echo $usuario->nome; ?></h1>
             <form action="?" method="post">
                 <!-- CAMPO OCULTO -->
-                <input type="hidden" name="id_usuario">
+                <input type="hidden" name="id_usuario" value="<?php echo $usuario->id_usuario?>">
                 <div class="row">
                         <div class="form-group col-md-6">
                             <label class="form-label" for="nome">Nome*</label>

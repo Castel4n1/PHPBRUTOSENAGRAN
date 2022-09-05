@@ -56,11 +56,11 @@ class Usuario extends Conexao
         $email = trim(strtolower($dados['email']));
         $senha = md5($dados['senha']);
         #MESCLAR OS DADOS
-        $sql->bindParam(':nome',$nome['nome']);
-        $sql->bindParam(':email',$email['email']);
-        $sql->bindParam(':senha',$senha['senha']);
+        $sql->bindParam(':nome',$nome);
+        $sql->bindParam(':email',$email);
+        $sql->bindParam(':senha',$senha);
         $sql->bindParam(':id_usuario', $dados['id_usuario']);
-                
+
         #EXECUTAR
         $sql->execute();
     }
