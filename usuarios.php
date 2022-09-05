@@ -76,6 +76,9 @@
                             <a href="<?php echo URL?>/usuario_atualizar.php?id=<?php echo $usuario->id_usuario?>"
                             class="btn btn-success">
                             Editar
+                            <a href="<?php echo URL?>/usuario_deletar.php?id=<?php echo $usuario->id_usuario?>"
+                            class="btn btn-danger">
+                            Apagar
                             
                             
                         </a>

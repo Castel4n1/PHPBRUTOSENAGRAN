@@ -2,9 +2,9 @@
 require_once('inc/classes.php');
 $Usuario = new Usuario();
 
-    if (isset($_POST['btnEditar'])) 
+    if (isset($_POST['btnApagar'])) 
     {
-        $Usuario->atualizar($_POST);
+        $Usuario->apagar($_POST);
         header('location:'.URL.'usuarios.php');
     }
 #PEGAR OS DADOS DO USUARIO, QUE O 'ID' FOI INFORMADO
@@ -67,7 +67,7 @@ $usuario = $Usuario->mostrar($_GET['id']);
                         </div>
                         
                         <div class="offset-11 col-md-1 mt-1">
-                            <input class="btn btn-danger" type="submit" name="btnApagar" value="Apagar" required>
+                            <input class="btn btn-primary" type="submit" name="btnEditar" value="Atualizar" required>
                         </div>
                     </div>
                 </div>
