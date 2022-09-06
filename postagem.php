@@ -1,5 +1,20 @@
 <?php
     require_once('inc/classes.php');
+
+    $Postagem = new Postagem();
+    /*
+    echo '<pre>';
+    print_r($postagem->listar());
+    echo '</pre>';
+    */
+
+    #CADASTRAR postagem
+    $dados = [
+        'nome' => 'JOSE DA ALVES',
+        'email' => 'jos1e1@teste.teste',
+        'senha' => '1234'
+        ];
+    //echo $postagem->cadastrar($dados);
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +46,72 @@
 
         <!-- CONTEUDO -->
         <div>
-            <h1>postagem</h1>
+            <h1 class="text-center">POSTAGENS
+                -
+                <a class="btn btn-dark" href="<?php echo URL;?>/postagem-cadastrar.php">
+                <i class="bi bi-person-plus"></i>
+
+                    Nova-Postagem
+                </a>
+            </h1>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Ações</th>
+                        <th>ID</th>
+                        <th>Usuário</th>
+                        <th>Data</th>
+                        <th>Descricao</th>
+                        <th>Gostei</th>
+                        <th>Não Gostei</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                        $postagens = $Postagem->listar();
+                        foreach ($postagens as $postagem) 
+                            {
+                    ?>
+                    <tr>
+                        <td>
+                            <a href="<?php echo URL?>/postagem_atualizar.php?id=<?php echo $postagem->id_postagem?>"
+                            class="btn btn-dark"
+                            ><i class="bi bi-pencil-square"></i>
+                            Editar
+                            
+                            <a href="<?php echo URL?>/postagem_deletar.php?id=<?php echo $postagem->id_postagem?>"
+                            class="btn btn-dark">
+                            <i class="bi bi-trash3"></i>
+                            Apagar
+                            
+                            
+                        </a>
+                        </td>
+                        <td>
+                            <?php echo $postagem->id_postagem; ?>
+                        </td>
+                        <td>
+                            <?php echo $postagem->id_usuario; ?>
+                        </td>
+                        <td>
+                            <?php echo $postagem->dt; ?>
+                        </td>
+                        <td>
+                            <?php echo nl2br($postagem->descricao); ?>
+                        </td>
+                        <td>
+                            <?php echo $postagem->gostei; ?>
+                        </td>
+                        <td>
+                            <?php echo $postagem->naogostei; ?>
+                        </td>
+                    </tr>
+                    <?php
+                            }#FECHA FOREACH
+                    ?>
+                </tbody>
+            </table>
         </div>
         <!-- /CONTEUDO -->
 

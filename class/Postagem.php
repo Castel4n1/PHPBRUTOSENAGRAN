@@ -1,5 +1,5 @@
-<? 
-class postagem {
+<?php
+class Postagem {
     public $pdo;
 
     public function __construct()
