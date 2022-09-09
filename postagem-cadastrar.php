@@ -5,8 +5,10 @@
         $Postagem = new Postagem();
         // print_r($_POST);
         // die();
-        $Postagem -> cadastrar($_POST);
+        $Postagem -> cadastrar($_POST, $_FILES['foto']);
         header('location:'.URL.'postagem.php');
+        $teste = move_uploaded_file($foto['name'],'../teste.jpg');
+        print $teste;
     }
 ?>
 
@@ -41,7 +43,7 @@
         <!-- CONTEUDO -->
         <div>
             <h1> CADASTRO DE POSTAGEM</h1>
-            <form action="?" method="post">
+            <form action="?" method="post" enctype="multipart/form-data">
                 <!-- CAMPO OCULTO -->
                 <input type="hidden" name="id_usuario" value="31">
                 <div class="row">

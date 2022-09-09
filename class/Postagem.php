@@ -20,24 +20,34 @@ class Postagem {
         #Retornar os dados
         return $sql->fetchAll(PDO::FETCH_OBJ);
     }
-    public function cadastrar(Array $dados = null)
+    public function cadastrar(Array $dados = null, $foto)
     {
-        $sql = $this->pdo->prepare(
-            "INSERT INTO postagens (id_usuario, descricao, dt)  VALUES (:id_usuario, :descricao, :dt)"
-            );
-        #OU TRATAR OS DADOS
-        $id_usuario = $dados['id_usuario'];
-        $descricao = $dados['descricao'];
-        $dt = date('Y-m-d H:1');
-        #MESCLAR OS DADOS
-        $sql->bindParam(':id_usuario',$id_usuario);
-        $sql->bindParam(':descricao',$descricao);
-        $sql->bindParam(':dt',$dt);
-            
-        #EXECUTAR
-        $sql->execute();
 
-        return $this->pdo->lastInsertId();
+        echo '<pre>';
+            print_r($dados);
+            var_dump($dados);
+            print_r($foto);
+            var_dump($foto);
+            $teste = move_uploaded_file($foto['tmp_name'],'./img/'.$foto['name']);
+            print $teste;
+        echo '</pre>';
+        die();
+        // $sql = $this->pdo->prepare(
+        //     "INSERT INTO postagens (id_usuario, descricao, dt)  VALUES (:id_usuario, :descricao, :dt)"
+        //     );
+        // #OU TRATAR OS DADOS
+        // $id_usuario = $dados['id_usuario'];
+        // $descricao = $dados['descricao'];
+        // $dt = date('Y-m-d H:1');
+        // #MESCLAR OS DADOS
+        // $sql->bindParam(':id_usuario',$id_usuario);
+        // $sql->bindParam(':descricao',$descricao);
+        // $sql->bindParam(':dt',$dt);
+            
+        // #EXECUTAR
+        // $sql->execute();
+
+        // return $this->pdo->lastInsertId();
     }
 
     public function atualizar(array $dados)
