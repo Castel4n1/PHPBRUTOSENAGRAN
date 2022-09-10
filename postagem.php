@@ -97,8 +97,13 @@
                         <td>
                             <?php echo $postagem->dt; ?>
                         </td>
-                        <td>
-                            <?php echo nl2br($postagem->descricao); ?>
+                        <td>                        
+                            <?php
+                            if ($postagem->foto != '') {
+                                echo '<img class="img-fluid img-thumbnail" src="'.URL.'img/'.$postagem->foto.'">';
+                            }
+                            
+                            echo nl2br($postagem->descricao); ?>
                         </td>
                         <td>
                             <?php echo $postagem->gostei; ?>

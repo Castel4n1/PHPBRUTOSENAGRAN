@@ -1,14 +1,16 @@
 <?php
     require_once('inc/classes.php');
 
-    if (isset($_POST['btnCadastrar'])) {
-        $Postagem = new Postagem();
-        // print_r($_POST);
-        // die();
-        $Postagem -> cadastrar($_POST, $_FILES['foto']);
+    $Postagem = new Postagem();
+
+    if (isset($_POST['btnAtualizar'])) {
+
+        $Postagem -> atualizar($_POST, $_FILES['foto']);
         header('location:'.URL.'postagem.php');
 
     }
+
+    $post = $Postagem->mostrar($_GET['id']);
 ?>
 
 
@@ -41,14 +43,17 @@
 
         <!-- CONTEUDO -->
         <div>
-            <h1> CADASTRO DE POSTAGEM</h1>
+            <h1> UPDATE DE POSTAGEM</h1>
             <form action="?" method="post" enctype="multipart/form-data">
                 <!-- CAMPO OCULTO -->
                 <input type="hidden" name="id_usuario" value="31">
+                <input type="hidden" name="id_postagem" value="<?php echo $post->id_postagem;?>">
+                <input type="hidden" name="foto_atual" value="<?php echo $post->foto;?>">
+
                 <div class="row">
                         <div class="form-group col-md-12">
                             <label class="form-label" for="descricao">Descricao*</label>
-                            <textarea class="form-control"name="descricao" id="descricao" rows="10"></textarea>
+                            <textarea class="form-control"name="descricao" id="descricao" rows="10" required><?php echo $post->descricao;?></textarea>
                         </div>
 
                         <div class="form-group col-md-6">
@@ -57,7 +62,7 @@
                         </div>
                         
                         <div class="offset-11 col-md-1 mt-1">
-                            <input class="btn btn-primary" type="submit" name="btnCadastrar" value="Cadastrar" required>
+                            <input class="btn btn-primary" type="submit" name="btnAtualizar" value="Atualizar" required>
                         </div>
                     </div>
                 </div>
